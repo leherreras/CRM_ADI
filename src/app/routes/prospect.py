@@ -8,7 +8,7 @@ from app.domain.prospect_validations import Prospect
 router_prospect = APIRouter()
 
 
-@router_prospect.get("/all", response_model=List[Lead])
+@router_prospect.get("/", response_model=List[Lead])
 def valid_prospect() -> List[Lead]:
     """
     Valid if the leads in the system are prospects
