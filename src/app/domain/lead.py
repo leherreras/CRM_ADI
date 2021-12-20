@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 @dataclass
 class Lead(BaseModel):
     """
-    National identification number, birthdate, first name, last name, email, etc
+    National identification number, birthdate, first name, last name, email, prospect
     """
     identification_number: str
     first_name: str
@@ -24,6 +24,11 @@ class Lead(BaseModel):
         super().__init__(**kwargs)
 
     def save(self, lead_repository: "LeadRepository"):
+        """
+        Save a lead in the repository
+        :param lead_repository: Repository of leads
+        :return: Lead saved
+        """
         return lead_repository.add(self)
 
     def __hash__(self):
